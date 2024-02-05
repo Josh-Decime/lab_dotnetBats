@@ -10,8 +10,16 @@ public class BatsRepository
         new Bat("Henry")
     ];
 
+    internal Bat CreateBat(Bat batData)
+    {
+        FakeDB.Add(batData);
+        return batData;
+    }
+
     internal List<Bat> GetBats()
     {
         return FakeDB;
     }
+
+
 }

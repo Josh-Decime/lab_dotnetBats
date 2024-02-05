@@ -11,6 +11,20 @@ public class BatsController : ControllerBase
         this.batsService = batsService;
     }
 
+    [HttpPost]
+    public ActionResult<Bat> CreateBat([FromBody] Bat batData)
+    {
+        try
+        {
+            Bat bat = batsService.CreateBat(batData);
+            return Ok(bat);
+        }
+        catch (Exception error)
+        {
+            return BadRequest(error.Message);
+        }
+    }
+
     [HttpGet]
     public ActionResult<List<Bat>> GetBats()
     {
